@@ -43,6 +43,23 @@ function App() {
     localStorage.setItem('city', JSON.stringify(currentCity))
   }, [currentCity])
 
+
+
+  useEffect(()=>{
+    const headerValueStorageData = JSON.parse(localStorage.getItem('headerValue') || '' )
+   if(headerValueStorageData !== ''){
+    setHeaderValue(headerValueStorageData)
+  }
+ 
+},[])
+
+useEffect(()=>{
+  localStorage.setItem('headerValue', JSON.stringify(headerValue))
+}, [headerValue])
+
+
+  
+
   async function getWeatherFromAPI (){
 
         try {
