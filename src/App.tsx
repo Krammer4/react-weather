@@ -34,7 +34,7 @@ function App() {
   useEffect(()=>{
     if(currentCity){
       const cityStorageData = JSON.parse(localStorage.getItem('city') || '' )
-     if(cityStorageData){
+     if(cityStorageData !== ''){
       setCurrentCity(cityStorageData)
      }
     }
