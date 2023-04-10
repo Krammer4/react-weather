@@ -9,6 +9,7 @@ import { IResponse } from './Interfaces/Interfaces';
 
 function App() {
 
+
   const [currentCity, setCurrentCity] = useState("")
   const [currentWeather, setCurrentWeather] = useState<IResponse>({})
   const [isLoaded, setIsLoaded] = useState<boolean>(false)
@@ -30,19 +31,21 @@ function App() {
     
   }
   
+  useEffect(()=>{
+    if(currentCity){
+      const cityStorageData = JSON.parse(localStorage.getItem('city') || '' )
+     if(cityStorageData){
+      setCurrentCity(cityStorageData)
+     }
+    }
+   
+  },[])
+
+  useEffect(()=>{
+    localStorage.setItem('city', JSON.stringify(currentCity))
+  }, [currentCity])
 
   async function getWeatherFromAPI (){
-
-    useEffect(()=>{
-      if(currentCity){
-        setCurrentCity(JSON.parse(localStorage.getItem('city') || '' )) 
-      }
-     
-    },[])
-
-    useEffect(()=>{
-      localStorage.setItem('city', JSON.stringify(currentCity))
-    }, [currentCity])
 
         try {
           const response: any = await axios.get<IResponse>(`https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&lang=ru&units=metric&appid=152b7f66c2df2dc3d5b721c565ed70e6`);
