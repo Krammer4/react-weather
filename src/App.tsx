@@ -30,33 +30,6 @@ function App() {
     setInputCityValue('')
     
   }
-  
-  useEffect(()=>{
-      const cityStorageData = JSON.parse(localStorage.getItem('city') || '' )
-     if(cityStorageData !== ''){
-      setCurrentCity(cityStorageData)
-    }
-   
-  },[])
-
-  useEffect(()=>{
-    localStorage.setItem('city', JSON.stringify(currentCity))
-  }, [currentCity])
-
-
-
-  useEffect(()=>{
-    const headerValueStorageData = JSON.parse(localStorage.getItem('headerValue') || '' )
-   if(headerValueStorageData !== ''){
-    setHeaderValue(headerValueStorageData)
-  }
- 
-},[])
-
-useEffect(()=>{
-  localStorage.setItem('headerValue', JSON.stringify(headerValue))
-}, [headerValue])
-
 
   
 
