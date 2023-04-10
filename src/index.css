@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Comfortaa', cursive;
+        width:100%
+    }
+  }
+
+.main-logo{
+    max-width: 120px;
+}
+  .wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  }
+
+  .flex33{
+    flex: 1 1 33.333%
+  }
+  .flex66{
+    flex: 1 1 66%
+  }
+  .flex100{
+    flex: 1 1 100%
+  }
+  .flex50{
+    flex: 1 1 50%
+  }
+  .additional-info{
+    font-weight:900;
+    font-size: 26px;
+  }
+  .additional-info:not(:first-child){
+    padding-top: 10px;
+  }
